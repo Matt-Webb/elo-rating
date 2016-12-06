@@ -24,10 +24,7 @@ module.exports = ( function() {
         },
         commands: {
             'test': function runCommand( callback ) {
-                runSequence( [
-                    'lint-scripts',
-                    'lint-code-standards'
-                ], [
+                runSequence([
                     'run-unit-tests'
                 ], callback );
             },

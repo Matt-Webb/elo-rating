@@ -1,12 +1,10 @@
 'use strict';
 const assert = require('chai').assert;
-const RatingService = require('src/rating.service');
-
-
+const RatingService = require('../src/rating.service');
 
 describe('Rating Service', function() {
 
-    const Rating;
+    let Rating;
 
     beforeEach(function() {
       Rating = new RatingService();
