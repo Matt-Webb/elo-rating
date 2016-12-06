@@ -1,0 +1,26 @@
+{
+  "name": "elo-calculator",
+  "version": "1.0.0",
+  "description": "chess rating calculations",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/gulp test"
+  },
+  "keywords": [
+    "chess",
+    "elo"
+  ],
+  "author": "Matthew D Webb",
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.18.0",
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^3.0.1",
+    "mocha": "^3.2.0"
+  }
+}
