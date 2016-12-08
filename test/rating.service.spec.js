@@ -32,6 +32,11 @@ describe('Rating Service', function() {
         it('should return the grade 200 when passed the parameters: 180, 200, 0.5 {draw}', function() {
             assert.equal(200, Rating.ecf(180,200, 0.5));
         });
+
+        it('should throw an error when passed incorrect type parameters', function() {
+           //assert.equal()
+        })
+
     });
 
     describe('Convert ECF Grade to ELO Rating', function() {

@@ -15,23 +15,23 @@ class RatingService {
      */
     elo(playerRating, opponentRating, kFactor, result) {
 
-        const _pR = parseInt(playerRating, 10);
-        const _oR = parseInt(opponentRating, 10);
-        const _k = parseInt(kFactor, 10);
-        const _r = parseFloat(result, 10);
+        const pR = parseInt(playerRating, 10);
+        const oR = parseInt(opponentRating, 10);
+        const k = parseInt(kFactor, 10);
+        const r = parseFloat(result, 10);
 
-        const transformPR = Math.pow(10, (_pR / 400));
-        const transformOR = Math.pow(10, (_oR / 400));
+        const transformPR = Math.pow(10, (pR / 400));
+        const transformOR = Math.pow(10, (oR / 400));
 
         const expectation = transformPR / (transformPR + transformOR);
 
-        const outcome = _pR + _k * (_r - expectation);
+        const outcome = pR + k * (r - expectation);
 
         const data = {
-            current: _pR,
-            opponent: _oR,
-            result: _r,
-            change: (outcome - _pR).toFixed(2),
+            current: pR,
+            opponent: oR,
+            result: r,
+            change: (outcome - pR).toFixed(2),
             newRating: Math.round(outcome),
             accum: null
         };
@@ -76,7 +76,7 @@ class RatingService {
      * @return {number}
      * @param {number} ecf
      */
-    convertToElo(ecf) {
+    convertToElo(ecf = errorHandler()) {
 
         if(typeof ecf !== 'number') return new Error('Parameter of wrong type.');
         const elo = (7.5 * ecf) + 700;
@@ -88,11 +88,15 @@ class RatingService {
      * @return {number}
      * @param {number} elo
      */
-    convertToEcf(elo) {
+    convertToEcf(elo = errorHandler()) {
 
         if(typeof elo !== 'number') return new Error('Parameter of wrong type');
         const ecf = (elo - 700) / 7.5;
         return ecf;
+    }
+
+    errorHandler() {
+      throw new Error('Parameter missing')
     }
 
 }
